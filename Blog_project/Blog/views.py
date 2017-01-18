@@ -1,7 +1,7 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse, Http404
 from .models import Post
-from django.template import loader
+
 
 # Create your views here.
 
@@ -17,13 +17,11 @@ def delete(request):
 def edit(request):
     return HttpResponse("This is the blog edit page")
 
-def detail(request, id):
-    return HttpResponse("<h2>Details for album id:" + str(id)+ "<h2>")
 
 def test(request):
     all_posts = Post.objects.all()
-    template = loader.get_template("Blog/index.html")
-    context = {
-    'all_posts': all_posts
-    }
-    return HttpResponse(template.render(context, request))
+    return render(request, 'Blog/index.html', {'all_posts': all_posts})
+
+def detail(request, id):
+    post = get_object_or_404(Post, pk=id)
+    return render(request, 'Blog/detail.html', {'post': post})

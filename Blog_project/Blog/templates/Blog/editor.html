@@ -1,0 +1,23 @@
+<html>
+<head>
+  <title>editor</title>
+
+</head>
+
+<body>
+  <textarea id=”NicEdit” cols=”80″ rows=”5″>Some Sample Text</textarea>
+<textarea id=”NotNicEdit” cols=”80″ rows=”5″>Some Sample Text</textarea>
+<div id=”NicEdit2″>Some Sample Text</div>
+
+
+</body>
+<script src=”http://js.nicedit.com/nicEdit-latest.js”></script>
+<script>
+bkLib.onDomLoaded(function()
+{
+new nicEditor().panelInstance(‘NicEdit’);
+new nicEditor().panelInstance(‘NicEdit2’);
+});
+</script>
+
+</html>

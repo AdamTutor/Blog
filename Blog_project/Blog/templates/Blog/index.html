@@ -2,7 +2,8 @@
 
   <ul>
     {%  for post in all_posts  %}
-    <li><a href ="/blog/{{ post.id }}">Blog</a></li>
+    <li><a href ="{% url 'blog:details' post.id %}">Blog</a></li>
+
     {% endfor %}
   </ul>
 
